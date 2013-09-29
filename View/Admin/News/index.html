@@ -1,0 +1,52 @@
+{include "Public/header"}
+		<div class="page_tit">{$title}</div>
+		<!-- START TOOLBAR -->
+		<div class="Toolbar_inbox">
+			<div class="page right"></div>
+			<a href="{:U('save')}" class="btn_a"><span>添加新闻</span></a>
+			<a href="#" class="btn_a" id="deleteAll"><span>删除</span></a>
+		</div>
+		<!-- END TOOLBAR -->
+		<!-- START LIST -->
+		<div class="list" id="list">
+		<form action="{:U('delete')}" method="post">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tbody>
+					<tr>
+						<th style="width: 30px;"><input type="checkbox" id="checkAll">
+						</th>
+						<th class="line_l">标题</th>
+						<th class="line_l">类别</th>
+						<th class="line_l">点击率</th>
+						<th class="line_l">发布者</th>
+						<th class="line_l">发布时间</th>
+						<th class="line_l">操作</th>
+					</tr>
+					{foreach $list as $v}
+					<tr>
+
+						<td><input type="checkbox" value="{$v['id']}" name="id[]"></td>
+						<td>{$v['title']}</td>
+						<td>{$v['category_name']}</td>
+						<td>{$v['click']}</td>
+						<td>{$v['username']}</td>
+						<td>{$v['create_time']}</td>
+						<td><a
+							href="{:U('update?id='.$v['id'])}">编辑</a>
+							-
+							<a href="{:U('delete?id='.$v['id'])}" class="delete">删除</a></td>
+					</tr>
+					{/foreach}
+				</tbody>
+			</table>
+			</form>
+			<div class="Toolbar_inbox">
+			<div class="page right">
+			{$page}
+			</div>
+		</div>
+		</div>
+		<!-- END LIST -->
+
+	</div>
+{include "Public/footer"}

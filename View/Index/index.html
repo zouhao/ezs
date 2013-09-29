@@ -1,0 +1,107 @@
+{include "Public/header"} {include "Ad/img"}
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".marquee").each(function() {
+		$(this).marquee({
+			speed:{:C('SPEED')}
+		});
+	});
+});
+</script>
+<div class="main" id="center">
+	<div id="category">
+		<h2 class="category_title">产品分类</h2>
+		<div id="category_text">
+			<ul>
+				<nanbo table="ProductCategory" where="is_hidden=0" limit="14" order="sort desc" value="v">
+				<li><a href="{:U('Product/index?id='.$v['id'])}" title="{$v['title']}">{$v['title']}</a></li>
+				</nanbo>
+			</ul>
+		</div>
+	</div>
+
+	<div id="company">
+		<h2 class="company_title">
+			<span><a href="{:U('About/profile')}">详细&gt;&gt;</a></span>公司介绍
+		</h2>
+		<div id="company_text">
+			<nanbo table="News" limit="1" order="id desc" key="key" value="v">
+
+			</nanbo>
+			<img src="__UPLOAD__/{$profile['small_img']}" align="left">
+			<p>{:sub(strip_tags($profile['content']),0,113)}</p>
+		</div>
+	</div>
+
+	<div id="case">
+		<div id="news_kuang">
+			<h2 class="news_title">
+				<span><a href="{:U('News/index')}">更多&gt;&gt;</a></span>新闻中心
+			</h2>
+			<div id="news_text">
+				<ul>
+					<nanbo table="News" limit="6" order="id desc" key="key" value="v">
+					<li><a href="{:U('News/read?id='.$v['id'])}"
+						title="{$v['title']}" target="blank"><span>{:date('Y-m-d',strtotime($v['create_time']))}</span>{:sub($v['title'],0,8)}</a></li>
+					</nanbo>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+</div>
+
+<div class="main" id="center2">
+	<div id="product" style="height:216px;">
+		<h2 class="product_title">产品展示</h2>
+		<div id="product_text" class="marquee" direction="left">
+			<ul style="width: 4032px;">
+				{foreach $productList as $v}
+				<li><a target="_blank" href="__UPLOAD__/{$v['big_img']}"><img
+						src="__UPLOAD__/{$v['small_img']}" width="230" height="140">
+						<p>{$v['title']}</p></a></li> {/foreach}
+		</div>
+	</div>
+
+	<div id="contact">
+		<h2 class="contact_title">联系方式</h2>
+		{~$fix=C('FIX')}
+		{~$phone=C('PHONE')}
+		{~$telephone=C('TELEPHONE')}
+		{~$email=C('EMAIL')}
+		{~$qq=C('QQ')}
+		{~$address=C('ADDRESS')}
+		{~$webSite=C('WEB_SITE')}
+		{~$contactPeople=C('CONTACT_PEOPLE')}
+		<div id="contact_text">
+		{if !empty($phone)}
+			<p>电 话：{$phone}</p>
+		{/if}
+			{if !empty($telephone)}
+			<p>手 机：{$telephone}</p>
+			{/if}
+			{if !empty($contactPeople)}
+			<p>联系人：{$contactPeople}</p>
+			{/if}
+			{if !empty($fix)}
+			<p>传 真：{$fix}</p>
+			{/if}
+			{if !empty($email)}
+			<p>邮 箱：{$email}</p>
+			{/if}
+			{if !empty($qq)}
+			<p>Q Q：{$qq}</p>
+			{/if}
+			{if !empty($webSite)}
+			<p>网 址：{$webSite}</p>
+			{/if}
+			{if !empty($address)}
+			<p>地 址：{$address}</p>
+			{/if}
+			
+		</div>
+	</div>
+
+</div>
+{include "Public/footer"}

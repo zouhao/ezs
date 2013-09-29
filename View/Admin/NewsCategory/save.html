@@ -1,0 +1,77 @@
+{include "Public/header"}
+<script type="text/javascript">
+$(function(){
+	$("input[name='is_hidden'][value='{$info['is_hidden']|''}']").attr("checked",true);
+	$("form").validate({
+		rules : {
+			"title" : {
+				required : true,
+				rangelength : [ 1,20 ]
+			},
+			"sort":{
+				digits:true
+			}
+		},
+		messages:{
+			title:{
+				required:"类别名必须填写",
+				rangelength:"类别名必须在1-20个字符之间"
+			},
+			sort:{
+				digits:"排序必须为整数"
+			}
+		}
+	});
+});
+</script>
+	<div class="page_tit">{$title}</div>
+	<!-- START CONFIG_FORM -->
+	<form method="POST" action="">
+	{if isset($_GET['id'])}
+	<input type="hidden" name="id" value="{:intval($_GET['id'])}" />
+	{/if}
+		<div class="form2">
+			<dl class="lineD">
+				<dt>
+					<font color="red"></font>类别名：
+				</dt>
+				<dd>
+					<input name="title"  type="text" value="{$info['title']|''}" class="s-txt">
+				</dd>
+			</dl>
+			<dl class="lineD">
+				<dt>
+					<font color="red"></font>排序：
+				</dt>
+				<dd>
+					<input name="sort"  type="text" value="{$info['sort']|0}" class="s-txt">
+					<font color="red">降序排序</font>
+				</dd>
+			</dl>
+			<dl class="lineD">
+				<dt>
+					<font color="red"></font>备注：
+				</dt>
+				<dd>
+					<input name="remark"  type="text" value="{$info['remark']|''}" class="s-txt">
+				</dd>
+			</dl>
+			<dl class="lineD" id='dl_user_group'>
+				<dt>
+					操作：
+				</dt>
+				<dd>
+					<span class="left"><input type="checkbox" name="is_hidden" value="1" class="checkbox"></span>
+					<span class="left">隐藏</span>
+				</dd>
+			</dl>
+			<div class="page_btm">
+				<input type='text' style="display: none"> <input
+					type="submit" class="btn_b" value="保存"  />
+			</div>
+		</div>
+	</form>
+	<!-- END CONFIG_FORM -->
+</div>
+
+</html>

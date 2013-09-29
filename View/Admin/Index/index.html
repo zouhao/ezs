@@ -1,0 +1,70 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="__CONTENT__/Admin/css/admin_header.css" rel="stylesheet"
+	type="text/css">
+<title>{:C('WEB_TITLE')}--后台管理系统</title>
+<script type="text/javascript" src="__CONTENT__/js/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$(".actuator").toggle(function(){
+		$(this).parent().css({"background-image":"url(__CONTENT__/Admin/images/ArrOff.png)"}).find(".submenu").show();
+	},function(){
+		$(this).parent().css({"background-image":"url(__CONTENT__/Admin/images/ArrOn.png)"}).find(".submenu").hide();
+	})
+});
+</script>
+<body scroll="no" style="margin: 0; padding: 0;"
+	screen_capture_injected="true">
+	<table width="100%" height="100%" border="0" cellpadding="0"
+		cellspacing="0">
+		<tbody>
+			<tr>
+				<td colspan="3">
+					<div class="header">
+						<!-- 头部 begin -->
+						<div class="logo">
+							<a href="#"><strong style="font-size: 18px;">管理中心</strong></a>
+						</div>
+						<div class="nav_sub">
+							您好,{$_SESSION['admin']['username']}&nbsp; | <a
+								href="__ROOT__/index.php">返回前台</a> | <a
+								href="{:U('Public/logout')}">退出</a><br>
+							<div id="TopTime"></div>
+						</div>
+					</div>
+					<div class="header_line">
+						<span>&nbsp;</span>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td width="200px" height="100%" valign="top" id="FrameTitle"
+					background="__CONTENT__/Admin/images/left_bg.gif">
+					<div class="LeftMenu">
+						<!-- 第一级菜单，即大频道 -->
+						<ul class="MenuList">
+							<!-- 第二级菜单 -->
+							{foreach $_SESSION['menuList'] as $v}
+							<li class="treemenu"
+								style="background-image: url(__CONTENT__/Admin/images/ArrOn.png);" id="0">
+								<a class="actuator" href="#" hidefocus="true">{$v['name']}</a>
+								<ul class="submenu">
+									<!-- 第三级菜单 -->
+									{foreach $v['children'] as $item}
+									<li><a href="{:U($item['url'])}" target="main">{$item['name']}</a></li>
+									{/foreach}
+								</ul>
+							</li> {/foreach}
+						</ul>
+					</div>
+				</td>
+				<td><iframe name="main" src="{:U('home')}" scrolling="yes"
+						width="100%" height="100%" frameborder="0" noresize="">
+					</iframe></td>
+			</tr>
+		</tbody>
+	</table>
+	</script>
+</body>
+</html>

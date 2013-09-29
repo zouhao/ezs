@@ -1,0 +1,41 @@
+{include "Public/header"}
+		<div class="page_tit">{$title}</div>
+		<!-- START TOOLBAR -->
+		<div class="Toolbar_inbox">
+			<div class="page right"></div>
+		</div>
+		<!-- END TOOLBAR -->
+		<!-- START LIST -->
+		<div class="list" id="list">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tbody>
+					<tr>
+						<th style="width: 30px;"><input type="checkbox" id="checkAll">
+						</th>
+						<th class="line_l">标题</th>
+						<th class="line_l">排序</th>
+						<th class="line_l">操作</th>
+					</tr>
+					{foreach $list as $v}
+					<tr>
+
+						<td><input type="checkbox" value="{$v['id']}" name="id[]"></td>
+						<td>{$v['title']}</td>
+						<td>{$v['sort']}</td>
+						<td><a
+							href="{:U('update?id='.$v['id'])}">编辑</a>
+							-
+							<a href="{:U('delete?id='.$v['id'])}" class="delete">删除</a></td>
+					</tr>
+					{/foreach}
+				</tbody>
+			</table>
+			<div class="Toolbar_inbox">
+			<div class="page right">
+			{$page}
+			</div>
+		</div>
+		</div>
+		<!-- END LIST -->
+	</div>
+{include "Public/footer"}

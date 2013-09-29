@@ -1,0 +1,20 @@
+{include "header"}
+<style type="text/css">
+<!--
+.so_main{margin:0 !important;}
+-->
+</style>
+<script type="text/javascript">
+$(function(){
+	$("#file_upload").change(function(){
+		$("form").submit();
+	});
+});
+</script>
+<form action="" method="post" enctype="multipart/form-data" >
+	<input id="file_upload" name="file_upload" type="file" />
+	<br /><br />
+	{if isset($_SESSION['small_img'])}
+	<img src="__UPLOAD__/{$_SESSION['small_img']}" width="150" />
+	{/if}
+</form>

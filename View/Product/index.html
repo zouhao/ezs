@@ -1,0 +1,34 @@
+{include "Public/header"}
+<link href="__CONTENT__/css/inner.css" rel="stylesheet" type="text/css">
+{include "Ad/img"}
+
+<div class="main" id="center">
+	<div id="left" class="sidebox">
+		<h2>{$title}</h2>
+		<ul id="left_menu">
+		{foreach $categoryList as $v}
+			<li><a href="{:U('Product/index?id='.$v['id'])}"
+				title="{$v['title']}">{$v['title']}</a></li>
+			{/foreach}
+		</ul>
+	</div>
+	<div id="right" class="sidebox" style="padding-bottom: 50px; ">
+		<h2>
+			<span>当前位置：首页 &gt; {$title}</span>{$title}
+		</h2>
+		<ul id="product">
+			{foreach $list as $v}
+			<li><a href="__UPLOAD__/{$v['big_img']}" target="_blank">
+					<dl>
+						<dt>
+							<img src="__UPLOAD__/{$v['small_img']}" width="230" height="120">
+						</dt>
+						<dd>{$v_title}：{$v['title']}</dd>
+					</dl>
+			</a></li> {/foreach}
+		</ul>
+		
+		<div class="page">{$page}</div>
+	</div>
+</div>
+{include "Public/footer"}

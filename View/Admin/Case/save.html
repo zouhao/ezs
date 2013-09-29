@@ -1,0 +1,91 @@
+{include "Public/header"}
+<script type="text/javascript">
+$(function(){
+	$("select[name='category_id']").val({$info['category_id']|0});
+	$("input[name='is_hidden'][value='{$info['is_hidden']|''}']").attr("checked",true);
+	$("form").validate({
+		rules : {
+			"title" : {
+				required : true,
+				rangelength : [ 1, 40 ]
+			}
+		},
+		messages:{
+			title:{
+				required:"案例标题必须填写",
+				rangelength:"案例标题必须在1-40个字符之间"
+			}
+		}
+	});
+	$(":submit").click(function(){
+		$.post("{:U('Validate/upload')}",function(e){
+			if(e=='false'){
+				art.dialog({
+					id:"submit",
+					title:"提交失败",
+					content:"必须上传缩略图",
+					ok:true,
+					lock:true
+				});
+			}else{
+				$("form").submit();
+			}
+		});
+		return false;
+	});
+});
+</script>
+	<div class="page_tit">{$title}</div>
+	<!-- START CONFIG_FORM -->
+	<form method="POST" action="">
+	{if isset($_GET['id'])}
+	<input type="hidden" name="id" value="{:intval($_GET['id'])}" />
+	{/if}
+		<div class="form2">
+			<dl class="lineD">
+				<dt>
+					<font color="red"></font>标题：
+				</dt>
+				<dd>
+					<input name="title"  type="text" value="{$info['title']|''}"  class="s-txt">
+				</dd>
+			</dl>
+			<dl class="lineD" id='dl_user_group'>
+				<dt>
+					<font color="red"></font>类别：
+				</dt>
+				<dd>
+					<select name="category_id">
+					{foreach $categoryList as $v}
+					<option value="{$v['id']}">{$v['title']}</option>
+					{/foreach}
+					</select>
+				</dd>
+			</dl>
+			<dl class="lineD">
+				<dt>
+					<font color="red"></font>缩略图：
+				</dt>
+				<dd>
+					<iframe src="{:U('Public/upload')}" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" width="100%" height="180" ></iframe>
+				</dd>
+			</dl>
+			<dl class="lineD" id='dl_user_group'>
+				<dt>
+					操作：
+				</dt>
+				<dd>
+					<span class="left"><input type="checkbox" name="is_hidden" value="1" class="checkbox"></span>
+					<span class="left">隐藏</span>
+				</dd>
+			</dl>
+			<div class="page_btm">
+				<input type='text' style="display: none"> <input
+					type="submit" class="btn_b" value="保存"  />
+			</div>
+		</div>
+	</form>
+	<!-- END CONFIG_FORM -->
+</div>
+
+</html>

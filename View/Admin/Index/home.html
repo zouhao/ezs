@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)http://localhost/ThinkSNS/index.php?app=admin&mod=User&act=index -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="__CONTENT__/Admin/css/admin.css" rel="stylesheet"
+	type="text/css">
+</head>
+<body screen_capture_injected="true">
+	<div id="container" class="so_main">
+		<div class="form2">
+           	<h3 onclick="admin.fold('app_3');">登陆信息</h3>
+            <div id="app_3">
+            <dl><dt><strong>用户名：</strong></dt><dd>{$_SESSION['admin']['username']}</dd></dl>
+            <dl><dt><strong>上次登陆时间：</strong></dt><dd>{$_SESSION['admin']['last_login_time']}</dd></dl>
+            <dl><dt><strong>上次登陆IP：</strong></dt><dd>{$_SESSION['admin']['last_login_ip']}</dd></dl>
+			<dl><dt><strong>当前服务器时间：</strong></dt><dd>{:date('Y-m-d H:i:s')}</dd></dl>
+			<!--
+			<h3 onclick="admin.fold('app_4');">开发团队</h3>
+            <div id="app_4">
+             
+            <dl><dt><strong>技术支持：</strong></dt><dd><a href="http://www.nanbo2.com" target="_blank">南波兔</a></dd></dl>            </div>    </div>
+			 -->
+	</div>
+</body>
+</html>

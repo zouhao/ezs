@@ -1,0 +1,120 @@
+{include "Public/header"}
+	<div class="page_tit">{$title}</div>
+	<!-- START CONFIG_FORM -->
+	<form method="POST" action="">
+		<div class="form2">
+			<dl class="lineD">
+				<dt>
+					<font color="red"></font>站点标题：
+				</dt>
+				<dd>
+					<input name="WEB_TITLE"  type="text" value="{:C('WEB_TITLE')}" class="input-big">
+				</dd>
+			</dl>
+			<dl class="lineD">
+				<dt>
+					<font color="red"></font>站点关键字：
+				</dt>
+				<dd>
+					<input name="WEB_KEYWORDS"  type="text" value="{:C('WEB_KEYWORDS')}" class="input-big">
+				</dd>
+			</dl>
+			<dl class="lineD">
+				<dt>
+					<font color="red"></font>站点描述：
+				</dt>
+				<dd>
+					<input name="WEB_DESCRIPTION"  type="text" value="{:C('WEB_DESCRIPTION')}" class="input-big">
+				</dd>
+			</dl>
+			<dl class="lineD">
+				<dt>
+					<font color="red"></font>电话：
+				</dt>
+				<dd>
+					<input name="PHONE"  type="text" value="{:C('PHONE')}" class="input-big">
+				</dd>
+			</dl>
+			<dl class="lineD">
+				<dt>
+					<font color="red"></font>手机：
+				</dt>
+				<dd>
+					<input name="TELEPHONE"  type="text" value="{:C('TELEPHONE')}" class="input-big">
+				</dd>
+			</dl>
+			<dl class="lineD">
+				<dt>
+					<font color="red"></font>传真：
+				</dt>
+				<dd>
+					<input name="FIX"  type="text" value="{:C('FIX')}" class="input-big">
+				</dd>
+			</dl>
+			<dl class="lineD">
+				<dt>
+					<font color="red"></font>邮箱：
+				</dt>
+				<dd>
+					<input name="EMAIL"  type="text" value="{:C('EMAIL')}" class="input-big">
+				</dd>
+			</dl>
+			<dl class="lineD">
+				<dt>
+					<font color="red"></font>QQ：
+				</dt>
+				<dd>
+					<input name="QQ"  type="text" value="{:C('QQ')}" class="input-big">
+				</dd>
+			</dl>
+			<dl class="lineD">
+				<dt>
+					<font color="red"></font>网址：
+				</dt>
+				<dd>
+					<input name="WEB_SITE"  type="text" value="{:C('WEB_SITE')}" class="input-big">
+				</dd>
+			</dl>
+			<dl class="lineD">
+				<dt>
+					<font color="red"></font>地址：
+				</dt>
+				<dd>
+					<input name="ADDRESS"  type="text" value="{:C('ADDRESS')}" class="input-big">
+				</dd>
+			</dl>
+			<dl class="lineD">
+				<dt>
+					<font color="red"></font>联系人：
+				</dt>
+				<dd>
+					<input name="CONTACT_PEOPLE"  type="text" value="{:C('CONTACT_PEOPLE')}" class="input-big">
+				</dd>
+			</dl>
+			
+			<dl class="lineD">
+				<dt>
+					<font color="red"></font>版权所有：
+				</dt>
+				<dd>
+					<input name="COPYRIGHT"  type="text" value="{:C('COPYRIGHT')}" class="input-big">
+				</dd>
+			</dl>
+			<dl class="lineD">
+				<dt>
+					<font color="red"></font>首页产品图片滚动速度：
+				</dt>
+				<dd>
+					<input name="SPEED"  type="text" value="{:C('SPEED')}" class="input-big">
+					<font color="red">值越小,速度越快</font>
+				</dd>
+			</dl>
+			<div class="page_btm">
+				<input type="submit" class="btn_b" value="保存"  />
+			</div>
+		</div>
+	</form>
+	<!-- END CONFIG_FORM -->
+</div>
+
+</html>

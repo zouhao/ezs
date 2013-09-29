@@ -1,0 +1,30 @@
+{include "Public/header"}
+<link href="__CONTENT__/css/basicStyle.css" rel="stylesheet" type="text/css">
+<link href="__CONTENT__/css/inner.css" rel="stylesheet" type="text/css">
+
+<div class="main" id="inner_banner"><img src="__CONTENT__/images/03_news.jpg"></div>
+<div class="main" id="center">
+
+	<div id="left" class="sidebox">
+		<h2>新闻动态</h2>
+		<ul id="left_menu">
+			<nanbo table="NewsCategory" where="is_hidden=0" value="v" order="sort desc">
+			<li><a href="{:U('News/index?id='.$v['id'])}">{$v['title']}</a></li>
+			</nanbo>
+		</ul>
+
+	</div>
+
+	<div id="right" class="sidebox">
+		<h2>
+			<span>当前位置：首页 &gt; 新闻动态</span>{$news["title"]}
+		</h2>
+		<div id="right_text">
+			<h1 align="center">{$news["title"]}</h1>
+			<p>
+			{$news["content"]}
+		</div>
+	</div>
+
+
+	{include "Public/footer"}

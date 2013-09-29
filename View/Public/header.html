@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<title>{:C('WEB_TITLE')}</title>
+<meta name="keywords" content="{:C('WEB_KEYWORDS')}">
+<meta name="description" content="{:C('WEB_DESCRIPTION')}">
+
+<link href="__CONTENT__/css/basicStyle.css" rel="stylesheet" type="text/css">
+<link href="__CONTENT__/css/index.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="__CONTENT__/css/jquery.lightbox-0.5.css" media="screen">
+
+<script src="__CONTENT__/js/jquery.js" type="text/javascript"></script>
+<script src="__CONTENT__/js/jquery.marquee.js" type="text/javascript"></script>
+<script type="text/javascript" src="__CONTENT__/js/jquery.lightbox-0.5.js"></script>
+
+
+<script language="javascript" type="text/javascript">
+function showMenu (baseID, divID) {
+	for (i=1;i<={:count($adDown)} ;i++ ){
+		var varMenu='menu'+i;
+		document.getElementById(varMenu).style.display='none';
+	}
+    baseID = document.getElementById(baseID);
+    divID  = document.getElementById(divID);
+    if (showMenu.timer) clearTimeout(showMenu.timer);
+	hideCur();
+    divID.style.display = 'block';
+	showMenu.cur = divID;
+
+    if (! divID.isCreate) {
+        divID.isCreate = true;
+        divID.onmouseover = function () {
+            if (showMenu.timer) clearTimeout(showMenu.timer);
+			hideCur();
+            divID.style.display = 'block';
+        };
+
+        function hide () {
+            showMenu.timer = setTimeout(function () {divID.style.display = 'none';document.getElementById('menu1').style.display='block';}, 1000);
+        }
+
+        divID.onmouseout = hide;
+        baseID.onmouseout = hide;
+    }
+	function hideCur () {
+		showMenu.cur && (showMenu.cur.style.display = 'none');
+	}
+}
+/**
+ * 设置为首页
+ */
+function SetHome(obj,vrl){
+    try{
+            obj.style.behavior='url(#default#homepage)';obj.setHomePage(vrl);
+    }
+    catch(e){
+            if(window.netscape) {
+                    try {
+                            netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+                    }
+                    catch (e) {
+                            alert("此操作被浏览器拒绝！\n请在浏览器地址栏输入“about:config”并回车\n然后将 [signed.applets.codebase_principal_support]的值设置为'true',双击即可。");
+                    }
+                    var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+                    prefs.setCharPref('browser.startup.homepage',vrl);
+             }
+    }
+}
+/**
+ * 加入收藏
+ */
+ function AddFavorite(sURL, sTitle)
+ {
+     try
+     {
+         window.external.addFavorite(sURL, sTitle);
+     }
+     catch (e)
+     {
+         try
+         {
+             window.sidebar.addPanel(sTitle, sURL, "");
+         }
+         catch (e)
+         {
+             alert("加入收藏失败，请使用Ctrl+D进行添加");
+         }
+     }
+ }
+</script>
+
+<script type="text/javascript">
+$(function() {
+	$('#product a').lightBox({
+		imageBtnNext:"__CONTENT__/images/lightbox-btn-next.gif",
+		imageBtnClose:"__CONTENT__/images/lightbox-btn-close.gif",
+		imageLoading:"__CONTENT__/images/lightbox-ico-loading.gif",
+		imageBtnPrev:"__CONTENT__/images/lightbox-btn-prev.gif"
+	});
+});
+</script>
+</head>
+
+<body style="height: 100%;">
+<div class="main" id="top">
+	<div id="logo"><img src="__CONTENT__/images/logo.jpg"></div>
+	<div id="other">
+		<p><a href="#" onclick="SetHome(this,window.location)">设为首页</a> | <a href="#" onclick="AddFavorite(window.location,document.title)">加入收藏</a> | <a href="{:U('Contact/contact')}">联系我们</a></p>
+		<p class="wellkonw">服务热线：<font>13777042298</font></p>
+	</div>
+</div>
+
+<div class="main">
+	<div id="menu">
+		<ul>
+			<li><a href="{:U('Index/index')}">首页</a></li>
+			<li><a href="{:U('About/profile')}">关于我们</a></li>
+			<li><a href="{:U('News/index')}">新闻动态</a></li>
+			<li><a href="{:U('Product/index?id=23')}">产品中心</a></li>
+			<li><a href="{:U('Case/index')}">工程案例</a></li>
+			<li class="nobg"><a href="{:U('Contact/contact')}">联系我们</a></li>
+		</ul>
+	</div>
+</div>
+<link rel="stylesheet" type="text/css" href="__CONTENT__/css/css.css">
+<div id="xixi" onmouseover="toBig()" onmouseout="toSmall()"
+	style="top: 200px; left: -152px; position: absolute;">
+	<table style="FLOAT: left" border="0" cellspacing="0" cellpadding="0"
+		width="157">
+		<tbody>
+			<tr>
+				<td class="main_head" height="39" valign="top">&nbsp;</td>
+			</tr>
+			<tr>
+
+				<td class="info" valign="top">
+					<table class="qqtable" border="0" cellspacing="0" cellpadding="0"
+						width="120" align="center">
+						<tbody>
+							<tr>
+								<td height="30"><span>我们的工作时间为 8:00 到 18:00
+										在线，其它时间请您为我们留言</span></td>
+							</tr>
+
+
+
+
+
+							<tr>
+								<td height="30"><span><a target="_blank"
+										href="http://wpa.qq.com/msgrd?v=3&uin={:C('QQ')}&site=qq&menu=yes"><img
+											border="0" src="http://wpa.qq.com/pa?p=2:{:C('QQ')}:41"
+											alt="点击这里给我发消息" title="点击这里给我发消息"></a></span></td>
+							</tr>
+							{~$phone=C('PHONE')}
+							{if !empty($phone)}
+							<tr>
+								<td><span>全国服务热线：<br>{$phone}
+								</span></td>
+							</tr>
+							{/if}
+							<tr>
+								<td height="15"></td>
+							</tr>
+							{~$phone=C('TELEPHONE')}
+							{if !empty($phone)}
+							<tr>
+								<td><span>手机:<br />{$phone}</span></td>
+							</tr>
+							{/if}
+							<tr>
+								<td height="15"></td>
+							</tr>
+							{~$address=C('ADDRESS')}
+							{if !empty($address)}
+							<tr>
+								<td><span>地址：{$address}</span></td>
+							</tr>
+							{/if}
+							<tr>
+								<td align="middle">&nbsp;</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td class="down_kefu" valign="top"></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="Obtn"></div>
+</div>
+<script type="text/javascript">
+/*
+kf=function (id,_top,_left){
+var me=id.charAt?document.getElementById(id):id, d1=document.body, d2=document.documentElement;
+d1.style.height=d2.style.height='100%';me.style.top=_top?_top+'px':0;me.style.left=_left+"px";}//[(_left>0?'left':'left')]=_left?Math.abs(_left)+'px':0;
+me.style.position='absolute';
+setInterval(function (){me.style.top=parseInt(me.style.top)+(Math.max(d1.scrollTop,d2.scrollTop)+_top-parseInt(me.style.top))*0.1+'px';},10+parseInt(Math.random()*20));
+return arguments.callee;
+};
+
+
+window.onload=function (){
+kf
+('xixi',200,-152)
+}
+*/
+
+
+kf=function (id,_top,_left){
+	var me=id.charAt?document.getElementById(id):id, d1=document.body, d2=document.documentElement;
+	d1.style.height=d2.style.height='100%';me.style.top=_top?_top+'px':0;me.style.left=_left+"px";//[(_left>0?'left':'left')]=_left?Math.abs(_left)+'px':0;
+	me.style.position='absolute';
+	setInterval(function (){me.style.top=parseInt(me.style.top)+(Math.max(d1.scrollTop,d2.scrollTop)+_top-parseInt(me.style.top))*0.1+'px';},10+parseInt(Math.random()*20));
+	return arguments.callee;
+	};
+	window.onload=function (){
+	kf
+	('xixi',200,-152)
+	}
+	
+	lastScrollY=0; 
+	var InterTime = 1;
+	var maxWidth=-1;
+	var minWidth=-152;
+	var numInter = 8;
+	
+	var BigInter ;
+	var SmallInter ;
+	
+	var o =  document.getElementById("xixi");
+		var i = parseInt(o.style.left);
+		function Big()
+		{
+			if(parseInt(o.style.left)<maxWidth)
+			{
+				i = parseInt(o.style.left);
+				i += numInter;	
+				o.style.left=i+"px";	
+				if(i==maxWidth)
+					clearInterval(BigInter);
+			}
+		}
+		function toBig()
+		{
+			clearInterval(SmallInter);
+			clearInterval(BigInter);
+				BigInter = setInterval(Big,InterTime);
+		}
+		function Small()
+		{
+			if(parseInt(o.style.left)>minWidth)
+			{
+				i = parseInt(o.style.left);
+				i -= numInter;
+				o.style.left=i+"px";
+				
+				if(i==minWidth)
+					clearInterval(SmallInter);
+			}
+		}
+		function toSmall()
+		{
+			clearInterval(SmallInter);
+			clearInterval(BigInter);
+			SmallInter = setInterval(Small,InterTime);
+			
+		}
+</script>

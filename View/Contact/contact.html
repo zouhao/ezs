@@ -1,0 +1,26 @@
+{include "Public/header"}
+
+<link href="__CONTENT__/css/basicStyle.css" rel="stylesheet" type="text/css">
+<link href="__CONTENT__/css/inner.css" rel="stylesheet" type="text/css">
+
+<div class="main" id="inner_banner"><img src="__CONTENT__/images/06_contact.jpg"></div>
+<div class="main" id="center">
+	<div id="left" class="sidebox">
+		<h2>联系我们</h2>
+		<ul id="left_menu">
+			<li><a href="{:U('Contact/contact')}">联系富贵龙</a></li>
+		</ul>
+	</div>
+	
+	
+	<div id="right" class="sidebox">
+		<h2><span>当前位置：首页 &gt; 联系我们</span>联系我们</h2>
+		<div id="right_text">
+		{$contact['content']}
+<br>
+<iframe src="{:U('map')}" frameborder="0" height="600" scrolling="no" width="780"></iframe>
+		</div>
+	</div>
+	
+</div>	
+{include "Public/footer"}

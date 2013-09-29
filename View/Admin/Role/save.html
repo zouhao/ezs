@@ -1,0 +1,103 @@
+{include "Public/header"}
+<script type="text/javascript">
+$(function(){
+	$("form").validate({
+		rules : {
+			{if !isset($_GET['id'])}
+			"name" : {
+				required : true,
+				rangelength : [ 2, 20 ],
+				remote:{
+					type:"POST",
+					url:"{:U('Validate/isRoleNameExist')}"
+				}
+			}
+			{/if}
+		},
+		messages:{
+			name:{
+				required:"角色名必须填写",
+				rangelength:"角色名必须在2-20个字符之间",
+				remote:"角色名已经存在"
+			}
+		}
+	});
+	$("#menuAll").click(function(){
+		if($(this).attr("checked")){
+			$("input[name='menu_id[]']").attr("checked",true);
+		}else{
+			$("input[name='menu_id[]']").attr("checked",false);
+		}
+	});
+	$("input[name='is_forbid'][value='{$info['is_forbid']|''}']").attr("checked",true);
+	{if !empty($roleMenuList)}
+		{foreach $roleMenuList as $v}
+			$("input[name='menu_id[]'][value='{$v['menu_id']}']").attr("checked",true);
+		{/foreach}
+	{/if}
+});
+</script>
+	<div class="page_tit">{$title}</div>
+	<!-- START CONFIG_FORM -->
+	<form method="POST" action="">
+	{if isset($_GET['id'])}
+	<input type="hidden" name="id" value="{:intval($_GET['id'])}" />
+	{/if}
+		<div class="form2">
+			<dl class="lineD">
+				<dt>
+					<font color="red"></font>角色名：
+				</dt>
+				<dd>
+					<input name="name"  type="text" value="{$info['name']|''}" class="s-txt">
+				</dd>
+			</dl>
+			<dl class="lineD">
+				<dt>
+					操作：
+				</dt>
+				<dd>
+					<span class="left"><input type="checkbox" name="is_forbid" value="1" class="checkbox"></span>
+					<span class="left">禁止</span>
+				</dd>
+			</dl>
+			<dl class="lineD">
+				<dt>
+					权限：
+				</dt>
+				<dd>
+					<p>
+				<input type="checkbox" id="menuAll" class="checkbox"/>
+				全选
+					</p>
+					<div class="clear"></div>
+					{foreach $menuList as $v}
+					<p>
+					<span class="left"><strong>{$v['name']}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></span>
+						{foreach $v['children'] as $item}
+							<span class="left"><input type="checkbox" {if isset($item['is_open'])}checked disabled{else}name="menu_id[]" value="{$item['id']}" {/if}  />&nbsp;</span>
+							<span class="left">{$item['name']}</span>
+						{/foreach}
+					</p>
+					<div class="clear"></div>
+					{/foreach}
+				</dd>
+			</dl>
+			<dl class="lineD">
+				<dt>
+					备注：
+				</dt>
+				<dd>
+					<input name="remark"  type="text" value="{$info['remark']|''}" class="input-big">
+				</dd>
+			</dl>
+			<div class="page_btm">
+				<input type='text' style="display: none"> <input
+					type="submit" class="btn_b" value="保存"  />
+			</div>
+		</div>
+	</form>
+	<!-- END CONFIG_FORM -->
+</div>
+
+</html>

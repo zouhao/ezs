@@ -1,0 +1,27 @@
+{include "Public/header"}
+<link href="__CONTENT__/css/basicStyle.css" rel="stylesheet" type="text/css">
+<link href="__CONTENT__/css/inner.css" rel="stylesheet" type="text/css">
+
+<div class="main" id="inner_banner"><img src="__CONTENT__/images/01_about.jpg"></div>
+<div class="main" id="center">
+	<div id="left" class="sidebox">
+		<h2>关于我们</h2>
+		<ul id="left_menu">
+			<li><a href="{:U('About/profile')}">企业简介</a></li>
+			<li><a href="{:U('About/honor')}">企业荣誉</a></li>
+			<li><a href="{:U('About/cultural')}">企业文化</a></li>
+		</ul>
+	</div>
+	
+	<div id="right" class="sidebox">
+		<h2><span>当前位置：首页 &gt; 企业简介</span>企业文化</h2>
+		
+		<div id="right_text">
+<br>
+	{$cultural['content']}		
+		</div>
+	</div>
+<br>
+	
+</div>
+{include "Public/footer"}

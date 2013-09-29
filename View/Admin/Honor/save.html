@@ -1,0 +1,68 @@
+{include "Public/header"}
+<script type="text/javascript">
+$(function(){
+	$("form").validate({
+		rules : {
+			"title" : {
+				required : true,
+				rangelength : [ 1, 50 ]
+			}
+		},
+		messages:{
+			title:{
+				required:"标题必须填写",
+				rangelength:"标题必须在1-50个字符之间"
+			}
+		}
+	});
+	$(":submit").click(function(){
+		$.post("{:U('Validate/upload')}",function(e){
+			if(e=='false'){
+				art.dialog({
+					id:"submit",
+					title:"提交失败",
+					content:"必须上传图片",
+					ok:true,
+					lock:true
+				});
+			}else{
+				$("form").submit();
+			}
+		});
+		return false;
+	});
+});
+</script>
+	<div class="page_tit">{$title}</div>
+	<!-- START CONFIG_FORM -->
+	<form method="POST" action="">
+	{if isset($_GET['id'])}
+	<input type="hidden" name="id" value="{:intval($_GET['id'])}" />
+	{/if}
+		<div class="form2">
+			<dl class="lineD">
+				<dt>
+					<font color="red"></font>标题：
+				</dt>
+				<dd>
+					<input name="title"  type="text" value="{$info['title']|''}"  class="s-txt">
+				</dd>
+			</dl>
+			<dl class="lineD">
+				<dt>
+					<font color="red"></font>缩略图：
+				</dt>
+				<dd>
+					<iframe src="{:U('Public/upload')}" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" width="100%" height="180" ></iframe>
+				</dd>
+			</dl>
+			<div class="page_btm">
+				<input type='text' style="display: none"> <input
+					type="submit" class="btn_b" value="保存"  />
+			</div>
+		</div>
+	</form>
+	<!-- END CONFIG_FORM -->
+</div>
+
+</html>

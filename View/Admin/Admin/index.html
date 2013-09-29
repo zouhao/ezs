@@ -1,0 +1,51 @@
+{include "Public/header"}
+		<div class="page_tit">{$title}</div>
+		<!-- START TOOLBAR -->
+		<div class="Toolbar_inbox">
+			<div class="page right"></div>
+			<a href="{:U('save')}" class="btn_a"><span>添加管理员</span></a>
+		</div>
+		<!-- END TOOLBAR -->
+		<!-- START LIST -->
+		<div class="list" id="list">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tbody>
+					<tr>
+						<th style="width: 30px;"><input type="checkbox" id="checkAll">
+						</th>
+						<th class="line_l">UID</th>
+						<th class="line_l">管理员名</th>
+						<th class="line_l">角色</th>
+						<th class="line_l">是否禁止</th>
+						<th class="line_l">最后登陆时间</th>
+						<th class="line_l">最后登陆IP</th>
+						<th class="line_l">操作</th>
+					</tr>
+					{foreach $list as $v}
+					<tr>
+
+						<td><input type="checkbox" value="{$v['id']}" name="id[]"></td>
+						<td>{$v['id']}</td>
+						<td>{$v['username']}</td>
+						<td>{$v['name']}</td>
+						<td>{:isForbid($v['is_forbid'])}</td>
+						<td>{$v['last_login_time']}</td>
+						<td>{$v['last_login_ip']}</td>
+						<td><a
+							href="{:U('update?id='.$v['id'])}">编辑</a>
+							-
+							<a href="{:U('delete?id='.$v['id'])}" class="delete">删除</a></td>
+					</tr>
+					{/foreach}
+				</tbody>
+			</table>
+			<div class="Toolbar_inbox">
+			<div class="page right">
+			{$page}
+			</div>
+		</div>
+		</div>
+		<!-- END LIST -->
+
+	</div>
+{include "Public/footer"}

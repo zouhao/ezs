@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{:C('WEB_TITLE')}---后台管理系统</title>
+		<link rel="stylesheet" href="__CONTENT__/admin/css/reset.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="__CONTENT__/admin/css/style.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="__CONTENT__/admin/css/invalid.css" type="text/css" media="screen" />	
+		<script type="text/javascript" src="__CONTENT__/js/jquery.js"></script>
+	</head>
+	<body id="login">
+	<script type="text/javascript">
+	$(function(){
+		$(":submit").click(function(){
+			$.post("",$("form").serialize(),function(e){
+				if(e=='true'){
+					location.href="{:U('Index/index')}";
+				}else{
+					alert(e);
+				}
+			});
+			return false;
+		});
+	});
+	</script>
+		<div id="login-wrapper" class="png_bg">
+			<div id="login-top">
+				<h1>Simpla Admin</h1>
+				<!-- Logo (221px width) -->
+				<img id="logo" src="__CONTENT__/admin/images/logo.png" alt="Simpla Admin logo" />
+			</div> <!-- End #logn-top -->
+			<div id="login-content">
+				<form action="" method="post">
+					<p>
+						<label>用户名</label>
+						<input class="text-input" type="text" name="username" value="admin" />
+					</p>
+					<div class="clear"></div>
+					<p>
+						<label>密码</label>
+						<input class="text-input" type="password" name="password" value="123456" />
+					</p>
+					<div class="clear"></div>
+					<p>
+						<input class="button" type="submit" value="进入后台" />
+					</p>
+					
+				</form>
+			</div> <!-- End #login-content -->
+		</div> <!-- End #login-wrapper -->
+  </body>
+  </html>
