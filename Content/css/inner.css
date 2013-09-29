@@ -1,0 +1,139 @@
+.sidebox
+{
+  padding-bottom: 9999px !important; 
+  margin-bottom: -9999px !important; 
+}
+#inner_banner {
+	margin-top:2px;
+}
+#center {
+	padding-top:5px;
+	overflow:hidden;
+	background-color:#191718;
+}
+/*左边菜单*/
+#left {
+	float:left;
+	width:190px;
+	display:inline;
+	background-color:#222021;
+	padding:0 5px;
+}
+#left h2 {
+	float:left;
+	width:100%;
+	color:#F2AF20;
+	text-indent:0.5em;
+	padding-top:10px;
+	padding-bottom:6px;
+	font-size:14px;
+	font-weight:bold;
+	border-bottom:1px dashed #F2AF20;
+}
+#left #left_menu {
+	float:left;
+	width:190px;
+	padding:6px 0;
+	margin-bottom:30px;
+}
+#left_menu li {
+	float:left;
+	width:189px;
+	padding:4px 0;
+	line-height:22px;
+	background-image: url(../images/dian.jpg);
+	background-repeat: no-repeat;
+	background-position: 10px 12px;
+	text-indent:1.5em;
+	font-size:14px;
+}
+/*右边菜单*/
+#right {
+	float:right;
+	width:790px;
+	background-color:#222021;
+}
+#right h2 {
+	float:left;
+	width:100%;
+	font-size:14px;
+	color:#F2AF20;
+	text-indent:0.5em;
+	font-weight:bold;
+	padding-top:10px;
+	padding-bottom:6px;	
+	border-bottom:1px dashed #F2AF20;
+	display:inline;
+}
+#right h2 span {
+	float:right;
+	font-family:"宋体";
+	font-size:12px;
+	padding-right:10px;
+	font-weight:normal;
+}
+/*关于我们*/
+#right_text {
+	float:left;
+	width:780px;
+	padding:10px;
+}
+#right_text p {
+	line-height:24px;
+	text-indent:2em;
+}
+/*新闻中心*/
+#news {
+	float:left;
+	width:780px;
+	padding:20px 10px;
+}
+#news li {
+	float:left;
+	width:770px;
+	padding:5px;
+}
+#news li span {
+	float:right;
+}
+/*产品中心*/
+#product {
+	float:left;
+	width:100%;
+	padding:20px 10px;
+}
+#product li {
+	float:left;
+	width:260px;
+	height:200px;
+	text-align:center;
+}
+#product li dl dd {
+	text-align:left;
+	padding:10px 0;
+	text-indent:1em;
+}
+#product li img {
+	padding:4px;
+	border:1px solid #A0A0A0;
+}
+/*产品详细页*/
+#large_pic {
+	border:3px solid #B5B5B5;
+	padding:5px 0;
+	text-align:center;
+	width:994px;
+}
+#product_detail {
+	border:1px solid #A0A0A0;
+	width:998px;
+	margin:10px 0;
+}
+/*分页*/
+.page {
+	clear:both;
+	width:100%;
+	text-align:center;
+	float:left;
+	padding:10px 0;
+}

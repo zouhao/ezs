@@ -1,0 +1,200 @@
+#center {
+	padding:0 2px;
+	padding-top:15px;
+	width:996px;
+	background-color:#191718;
+}
+
+#category {
+	float:left;
+	width:352px;
+	height:190px;
+	background-color:#232122;
+}
+#category #category_text {
+	float:left;
+	width:100%;
+	height:157px;
+	border:1px solid #373737;
+	border-top:none;
+}
+#category_text ul li {
+	float:left;
+	width:156px;
+	padding:4px 5px;
+	background-image: url(../images/dian.jpg);
+	background-repeat: no-repeat;
+	text-indent:1em;
+	background-position: 6px 7px;
+}
+#category_text ul li font {
+	color:#F0000B;
+	font-size:12px;
+	font-family:"宋体";
+}
+#news_text ul li span {float:right;}
+
+#news_kuang {
+	float:left;
+	width:215;
+	background-color:#232122;
+}
+#center h2 {
+	float:left;
+	color:#F2AF20;
+	text-indent:1em;
+	background-image: url(../images/title_bg.jpg);
+	background-repeat: repeat-x;
+	border:1px solid #373737;
+	border-top:none;
+	border-bottom:none;
+	height:21px;
+	font-weight:bold;
+	padding-top:10px;
+}
+#center h2 span {
+	float:right;
+	padding-right:5px;
+}
+#center h2 span a {color:#F2AF20;}
+#center .news_title {
+	width:215px;
+}
+#center .category_title {
+	width:100%;
+}
+
+
+#news_kuang #news_text {
+	float:left;
+	width:215px;
+	height:157px;
+	border:1px solid #373737;
+	border-top:none;
+}
+#news_text ul li {
+	float:left;
+	width:205px;
+	padding:4px 5px;
+	background-image: url(../images/dian.jpg);
+	background-repeat: no-repeat;
+	text-indent:1em;
+	background-position: 6px 7px;
+}
+#news_text ul li font {
+	color:#F0000B;
+	font-size:12px;
+	font-family:"宋体";
+}
+#news_text ul li span {float:right;}
+
+
+#center #company {
+	float:left;
+	width:392px;
+	height:190px;
+	margin-bottom:5px;
+	margin-left:20px;
+	display:inline;
+	background-color:#232122;
+}
+#center .company_title {
+	width:390px;
+}
+#center #company_text {
+	float:left;
+	padding:5px 13px;
+	width:364px;
+	height:147px;
+	border:1px solid #373737;
+	border-top:none;
+}
+#center #company_text img {
+	padding-right:5px;
+	padding-bottom:5px;
+}
+#center #company_text p {
+	line-height:22px;
+}
+#center #case {
+	float:right;
+	width:217px;
+}
+#case .case_title {
+	width:215px;
+}
+#case #case_text {
+	float:left;
+	width:217px;
+	height:140px;
+}
+
+
+#center2 {
+	padding-top:10px;
+	background-color:#191718;
+}
+#product {
+	padding-left:2px;
+	width:762px;
+	float:left;
+	border:1px solid #373737;
+	background-color:#232122;
+	height:570px;
+}
+#product h2.product_title {
+	float:left;
+	width:754px;
+	color:#F2AF20;
+	text-indent:1em;
+	line-height:28px;
+	font-weight:bold;
+	background-image: url(../images/title_hr.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+#product #product_text {
+	float:left;
+	padding-top:8px;
+	width:754px;
+	overflow:hidden;
+}
+#product_text ul li {
+	float:left;
+	width:252px;
+	text-align:center;
+}
+#product_text ul li p {
+	line-height:28px;
+	font-family:"微软雅黑";
+}
+
+#contact {
+	float:right;
+	width:217px;
+}
+#contact h2.contact_title {
+	float:left;
+	width:215px;
+	color:#F2AF20;
+	text-indent:1em;
+	background-image: url(../images/title_bg.jpg);
+	background-repeat: repeat-x;
+	border:1px solid #373737;
+	border-top:none;
+	border-bottom:none;
+	height:21px;
+	font-weight:bold;
+	padding-top:10px;	
+}
+#contact #contact_text {
+	float:left;
+	width:209px;
+	padding:0 3px;
+	padding-top:2px;
+	border:1px solid #373737;
+	border-top:none;
+}
+#contact #contact_text p {
+	line-height:26px;
+}

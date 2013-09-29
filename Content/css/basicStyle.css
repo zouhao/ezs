@@ -1,0 +1,179 @@
+/*公共类开始  注：一般只设置 链接颜色 和 页面总体背景颜色*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {
+	padding: 0;
+	margin: 0;
+	font-size:12px;
+}
+table {    
+	border-collapse: collapse;    
+	border-spacing: 0;    
+}
+fieldset,img {     
+	border: 0;    
+}
+ol,ul,li {    
+	list-style: none;    
+}
+caption,th {    
+	text-align: left;    
+}
+h1,h2,h3,h4,h5,h6 {    
+	font-weight: normal;    
+	font-size: 100%;    
+}
+/* 链接颜色设置*/ 
+a:link {
+	text-decoration: none;
+	color: #FFF;
+}
+a:visited {
+	text-decoration: none;
+	color: #FFF;
+}
+a:hover {
+	text-decoration: none;
+	color: #999999;
+}
+a:active {
+	text-decoration: none;
+	color: #999999;
+}
+/* 链接颜色设置*/ 
+
+* html ul li {
+ float:left; 
+}
+* html ul li a {
+ cursor:pointer;
+}
+body {
+	color:#FFF;/*设置字体颜色*/
+	background-image: url(../images/bg.jpg);
+	background-repeat: repeat;
+}
+/*公共类结束*/
+
+/**********************以上部分固定************************/
+.main {	 /*大块区域使用样式main*/
+	margin: 0 auto;
+	width: 1000px; /*设置页面长度*/
+	clear: both;
+}
+.clear {
+	clear:both;
+}
+/**********************以上是大框架***************************/
+/*头部*/
+#top {
+	height:88px;
+	background-image: url(../images/top_bg.jpg);
+	background-repeat: repeat-x;
+}
+#logo {
+	float:left;
+	margin-top:4px;
+	margin-left:30px;
+	display:inline;
+}
+#other {
+	float:right;
+	padding-top:20px;
+	padding-right:10px;
+	text-align:right;
+	color:#FFFFFF;
+}
+#other a {color:#FFFFFF;}
+#other .wellkonw{
+	font-size:16px;
+	padding-top:10px;
+	font-family:"微软雅黑";
+	font-weight:bold;
+}
+#other .wellkonw font {
+	font-size:24px;
+	font-weight:normal;
+	font-family:Arial, Helvetica, sans-serif;
+}
+/*菜单*/
+#menu {
+	float:left;
+	height:38px;
+	width:1000px;
+	background-image: url(../images/menu_bg.jpg);
+	background-repeat: repeat-x;
+}
+#menu ul li {
+	float:left;
+	width:160px;
+	text-align:center;
+}
+#menu ul li a {
+	display:block;
+	color:#FFFFFF;
+	font-family:"微软雅黑";
+	font-size:14px;
+	font-weight:bold;
+	background-image: url(../images/menu_split.jpg);
+	background-repeat: no-repeat;
+	background-position: right center;
+	height:30px;
+	padding-top:8px;
+}
+#menu ul .nobg a {background-image:none;}
+#menu ul li a:hover {
+	color:#FF0000;
+}
+/*flash*/
+#main_flash {
+	height:380px;
+	width:1000px;
+	overflow:hidden;
+	margin-top:2px;
+}
+#main_flash ul {
+	float:left;
+	height:350px;
+	width:1000px;
+	display:none;
+}
+#main_flash ul li {
+	float:left;
+	height:350px;
+	width:1000px;
+}
+#flash_btm {
+	width:950px;
+	height:33px;
+	padding-top:1px;
+	background-image: url(../images/flash_menu_bg.jpg);
+	background-repeat: repeat-x;
+	float: left;
+	padding-left:50px;
+}
+#flash_btm ul li {
+	float:left;
+	width:92px;
+	margin:0 25px;
+	display:inline;
+	background-image: url(../images/flash_btm.jpg);
+	background-repeat: no-repeat;
+	text-align:center;
+}
+#flash_btm ul li a {
+	display:block;
+	color:#FFFFFF;
+	font-family:"微软雅黑";
+	height:25px;
+	padding-top:8px;
+}
+/*尾部*/
+#footer {
+	float:left;
+	width:1000px;
+	margin-top:5px;
+	text-align:center;
+	line-height:24px;
+	background-color:#222021;
+	border-top:1px solid #383838;
+	padding:8px 0;
+}
